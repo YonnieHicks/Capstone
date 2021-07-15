@@ -1,0 +1,32 @@
+h1 {
+  color: black;
+  font-size: 50px;
+  margin-bottom: 3%;
+  text-align: center;
+  background-color: blueviolet;
+  font-style: italic;
+}
+
+footer {
+  color: black;
+  font-size: 20px;
+  margin-bottom: 25%;
+  background-color: blueviolet;
+}
+ul {
+  text-decoration: black;
+  list-style-type: none;
+  margin: 10px;
+  width: 65px;
+  height: auto;
+  background-color: blueviolet;
+}
+
+li a {
+  color: black;
+  padding: 5px;
+}
+
+div {
+  position: relative;
+}
