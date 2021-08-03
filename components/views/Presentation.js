@@ -1,3 +1,4 @@
+import html from "html-literal";
 import WellnessLogo from "assets/images/WellnessLogo.jpg";
 
 export default () => `<section class="presentation">
