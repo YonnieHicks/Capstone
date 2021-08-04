@@ -1,5 +1,5 @@
-import html from "html-literal";
-import WellnessLogo from "assets/images/WellnessLogo.jpg";
+/* eslint-disable no-undef */
+// import WellnessLogo from "assets/images/WellnessLogo.jpg";
 
 export default () => `<section class="presentation">
 <class class="introduction">
@@ -12,5 +12,5 @@ export default () => `<section class="presentation">
 </class>
 </section>
 
-<img src="${WellnessLogo.jpg}" />
+<img src = "${WellnessLogo.jpg}" />
 `;
