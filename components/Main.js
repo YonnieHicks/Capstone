@@ -1,10 +1,4 @@
-export default () => `
-<main>
+import * as views from "./views";
 
-
-
-
-
-
-</main>
-`;
+export default st => `
+${views[st.view](st)}`;
