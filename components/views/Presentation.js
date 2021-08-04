@@ -1,7 +1,5 @@
-/* eslint-disable no-undef */
-// import WellnessLogo from "assets/images/WellnessLogo.jpg";
-
-export default () => `<section class="presentation">
+export default () => `
+<section class="presentation">
 <class class="introduction">
   <div class="intro-text">
     <h1>Affordable Wellness at Home</h1>
@@ -12,5 +10,4 @@ export default () => `<section class="presentation">
 </class>
 </section>
 
-<img src = "${WellnessLogo.jpg}" />
 `;
