@@ -19,7 +19,8 @@
 		height: 10vh;
 		margin: auto;
 		align-items: center;
-		}
+		position:fixed;
+	}
 
 	.logo-container,
 	.nav-links,
