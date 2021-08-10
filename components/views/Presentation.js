@@ -2,9 +2,9 @@ export default () => `
 <section class="presentation">
 <class class="introduction">
   <div class="intro-text">
-    <h1>Affordable Wellness at Home</h1>
+    <h1>Ipsum lorem ips </h1>
     <p>
-      Your home is your spa
+    Ipsum lorem ips
     </p>
   </div>
 </class>

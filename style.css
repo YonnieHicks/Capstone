@@ -23,7 +23,7 @@
 
 	.logo-container,
 	.nav-links,
-	.cart {
+	{
 		display: flex;
 	}
 
