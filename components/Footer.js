@@ -2,6 +2,8 @@ import html from "html-literal";
 
 export default () => html`
   <footer>
-    &copy; 2021 @ Home Wellness
+    <center>
+      &copy; 2021 My Self Care
+    </center>
   </footer>
 `;
