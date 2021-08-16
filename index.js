@@ -9,12 +9,12 @@ import axios from "axios";
 
 const router = new Navigo(window.location.origin);
 
-// router
-//   .on({
-//     ":page": (params) => render(state[capitalize(params.page)]),
-//     "/": () => render(state.Home),
-//   })
-//   .resolve();
+router
+  .on({
+    ":page": params => render(state[capitalize(params.page)]),
+    "/": () => render(state.Home)
+  })
+  .resolve();
 
 function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
@@ -94,7 +94,7 @@ router.hooks({
               state.Blog.posts.push(post);
             });
             done();
-            // console.log(state.Blog.posts);
+            console.log(state.Blog.posts);
           })
           .catch(err => console.log(err));
         break;
@@ -106,7 +106,7 @@ router.hooks({
           )
           .then(response => {
             state.Home.weather = {};
-            // console.log(response, state.Home.weather);
+            console.log(response, state.Home.weather);
             state.Home.weather.city = response.data.name;
             state.Home.weather.temp = response.data.main.temp;
             state.Home.weather.feelsLike = response.data.main.feels_like;
