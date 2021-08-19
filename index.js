@@ -8,7 +8,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const router = new Navigo(window.location.origin);
-console.log('matsinet-process.env:', process.env);
 
 function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
@@ -23,10 +22,12 @@ function render(st = state.Home) {
   addEventListeners(st);
 }
 
+
+
 function addEventListeners(st) {
   // add event listeners to Nav items for navigation
-  document.querySelectorAll("nav a").forEach((navLink) =>
-    navLink.addEventListener("click", (event) => {
+  document.querySelectorAll("nav a").forEach(navLink =>
+    navLink.addEventListener("click", event => {
       event.preventDefault();
       render(state[event.target.title]);
     })
@@ -38,39 +39,43 @@ function addEventListeners(st) {
     .addEventListener("click", () =>
       document.querySelector("nav > ul").classList.toggle("hidden--mobile")
     );
+  }
 
-router.hooks({
-  before: (done, params) => {
-    const page = params && params.hasOwnProperty("page") ? capitalize(params.page) : "Home";
+  router.hooks({
+    before: (done, params) => {
+      const page =
+        params && params.hasOwnProperty("page")
+          ? capitalize(params.page)
+          : "Home";
 
-    switch (page) {
-
-          case "Home":
+      switch (page) {
+        case "Home":
           axios
             .get(
               `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.WEATHER_API_KEY}&q=st.%20louis`
             )
-          .then((response) => {
-            state.Home.weather = {};
-            state.Home.weather.city = response.data.name;
-            state.Home.weather.temp = response.data.main.temp;
-            state.Home.weather.feelsLike = response.data.main.feels_like;
-            state.Home.weather.humidity = response.data.main.humidity;
-            state.Home.weather.description = response.data.weather[0]["description"];
-            done();
-          })
-          .catch((err) => console.log(err));
-        break;
+            .then(response => {
+              state.Home.weather = {};
+              state.Home.weather.city = response.data.name;
+              state.Home.weather.temp = response.data.main.temp;
+              state.Home.weather.feelsLike = response.data.main.feels_like;
+              state.Home.weather.humidity = response.data.main.humidity;
+              state.Home.weather.description =
+                response.data.weather[0]["description"];
+              done();
+            })
+            .catch(err => console.log(err));
+          break;
 
-      default:
-        done();
-    }
-  },
-});
+          default:
+          done();
+      }
+    },
+  });
 
-router
-  .on({
-    "/": () => render(state.Home),
-    ":page": (params) => render(state[capitalize(params.page)]),
-  })
-  .resolve()};
+  router
+    .on({
+      "/": () => render(state.Home),
+      ":page": params => render(state[capitalize(params.page)])
+    })
+    .resolve();
