@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
-//const greetings = require("./routers/greetings");
+const greetings = require("./routers/greetings");
 
 
 dotenv.config();
@@ -44,7 +44,7 @@ app.use(cors);
 app.use(express.json());
 app.use(logging);
 
-app.use(greetings);
+// app.use(greetings);
 
 // Configuring Express instance
 app.get("/status", (request, response) => {
