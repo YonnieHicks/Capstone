@@ -4,11 +4,20 @@ export default [
     text: "Home"
   },
   {
-    title: "Presentation",
-    text: "Presentation"
+    title: "Astrology",
+    text: "In the Stars"
   },
   {
-    title: "Topics",
-    text: "Topics"
+    title: "Tarot",
+    text: "In the Cards"},
+
+  {
+    title: "Journal",
+    text: "Jot that Down"
+  },
+
+  {
+    title: " Trails",
+    text: "Walk it Out"
   }
 ];

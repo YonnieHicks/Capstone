@@ -1,8 +1,7 @@
 import html from "html-literal";
 
-export default st => html`
+export default (st) => html`
   <header>
-    <h1>My Self Care ${st.header}</h1>
-    <div class="logo-container"></div>
+    <h1>The Unstressed Mom ${st.heading}</h1>
   </header>
 `;

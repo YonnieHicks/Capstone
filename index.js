@@ -1,14 +1,15 @@
 import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
-
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
 import dotenv from "dotenv";
+import "./env";
 
 dotenv.config();
 
 const router = new Navigo(window.location.origin);
+console.log('matsinet-process.env:', process.env);
 
 function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
@@ -23,12 +24,10 @@ function render(st = state.Home) {
   addEventListeners(st);
 }
 
-
-
 function addEventListeners(st) {
   // add event listeners to Nav items for navigation
-  document.querySelectorAll("nav a").forEach(navLink =>
-    navLink.addEventListener("click", event => {
+  document.querySelectorAll("nav a").forEach((navLink) =>
+    navLink.addEventListener("click", (event) => {
       event.preventDefault();
       render(state[event.target.title]);
     })
@@ -40,43 +39,117 @@ function addEventListeners(st) {
     .addEventListener("click", () =>
       document.querySelector("nav > ul").classList.toggle("hidden--mobile")
     );
+
+  // event listener for the the photo form
+  if (st.view === "Form") {
+    document.querySelector("form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      // convert HTML elements to Array
+      let inputList = Array.from(event.target.elements);
+      // remove submit button from list
+      inputList.pop();
+      // construct new picture object
+      let newPic = inputList.reduce((pictureObject, input) => {
+        pictureObject[input.name] = input.value;
+        return pictureObject;
+      }, {});
+      // add new picture to state.Gallery.pictures
+      state.Gallery.pictures.push(newPic);
+      render(state.Gallery);
+    });
   }
 
-  router.hooks({
-    before: (done, params) => {
-      const page =
-        params && params.hasOwnProperty("page")
-          ? capitalize(params.page)
-          : "Home";
+  if (st.view === "Order") {
+    document.querySelector("form").addEventListener("submit", event => {
+      event.preventDefault();
+      const inputList = event.target.elements;
 
-      switch (page) {
-        case "Home":
-          axios
-            .get(
-              `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.WEATHER_API_KEY}&q=st.%20louis`
-            )
-            .then(response => {
-              state.Home.weather = {};
-              state.Home.weather.city = response.data.name;
-              state.Home.weather.temp = response.data.main.temp;
-              state.Home.weather.feelsLike = response.data.main.feels_like;
-              state.Home.weather.humidity = response.data.main.humidity;
-              state.Home.weather.description =
-                response.data.weather[0]["description"];
-              done();
-            })
-            .catch(err => console.log(err));
-          break;
-
-          default:
-          done();
+      const toppings = [];
+      for (let input of inputList.toppings) {
+        if (input.checked) {
+          toppings.push(input.value);
+        }
       }
-    },
-  });
 
-  router
-    .on({
-      "/": () => render(state.Home),
-      ":page": params => render(state[capitalize(params.page)])
-    })
-    .resolve();
+      const requestData = {
+        crust: inputList.crust.value,
+        cheese: inputList.cheese.value,
+        sauce: inputList.sauce.value,
+        toppings: toppings
+      };
+
+      axios
+        .post(`${process.env.API}/pizzas`, requestData)
+        .then(response => {
+          state.Pizza.pizzas.push(response.data);
+          router.navigate("/Pizza");
+        })
+        .catch(error => {
+          console.log("It puked", error);
+        });
+    });
+  }
+}
+
+router.hooks({
+  before: (done, params) => {
+    const page = params && params.hasOwnProperty("page") ? capitalize(params.page) : "Home";
+
+    switch (page) {
+      case "Pizza":
+        axios
+          .get(`${process.env.API}/pizzas`)
+          .then(response => {
+            state[page].pizzas = response.data;
+            done();
+          })
+          .catch(error => {
+            console.log("Feel your spirits fly", error)
+            done()
+          })
+        break;
+
+      case "Blog":
+        state.Blog.posts = [];
+        axios
+          .get("https://jsonplaceholder.typicode.com/posts/")
+          .then((response) => {
+            response.data.forEach((post) => {
+              state.Blog.posts.push(post);
+            });
+            done();
+
+            console.log(state.Blog.posts);
+          })
+          .catch((err) => console.log(err));
+        break;
+
+      case "Home":
+        axios
+          .get(
+            `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.	WEATHER_API_KEY}&q=st.%20louis`
+          )
+          .then((response) => {
+            state.Home.weather = {};
+            state.Home.weather.city = response.data.name;
+            state.Home.weather.temp = response.data.main.temp;
+            state.Home.weather.feelsLike = response.data.main.feels_like;
+            state.Home.weather.humidity = response.data.main.humidity;
+            state.Home.weather.description = response.data.weather[0]["description"];
+            done();
+          })
+          .catch((err) => console.log(err));
+        break;
+
+      default:
+        done();
+    }
+  },
+});
+
+router
+  .on({
+    "/": () => render(state.Home),
+    ":page": (params) => render(state[capitalize(params.page)]),
+  })
+  .resolve();
