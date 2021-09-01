@@ -9,7 +9,7 @@ import "./env";
 dotenv.config();
 
 const router = new Navigo(window.location.origin);
-console.log('matsinet-process.env:', process.env);
+console.log('yhick-process.env:', process.env);
 
 function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
@@ -48,30 +48,18 @@ function addEventListeners(st) {
 //     const page = params && params.hasOwnProperty("page") ? capitalize(params.page) : "Home";
 
 //     switch (page) {
-//       case "Pizza":
+//
+//       case "Astrology":
+//         state.Astrology.posts = [];
 //         axios
-//           .get(`${process.env.API}/pizzas`)
-//           .then(response => {
-//             state[page].pizzas = response.data;
-//             done();
-//           })
-//           .catch(error => {
-//             console.log("Feel your spirits fly", error)
-//             done()
-//           })
-//         break;
-
-//       case "Blog":
-//         state.Blog.posts = [];
-//         axios
-//           .get("https://jsonplaceholder.typicode.com/posts/")
+//           .get("https://vedicrishi-horoscope-matching-v1.p.rapidapi.com/basic_panchang")
 //           .then((response) => {
 //             response.data.forEach((post) => {
-//               state.Blog.posts.push(post);
+//               state.Astrology.posts.push(post);
 //             });
 //             done();
 
-//             console.log(state.Blog.posts);
+//             console.log(state.Astrology.posts);
 //           })
 //           .catch((err) => console.log(err));
 //         break;

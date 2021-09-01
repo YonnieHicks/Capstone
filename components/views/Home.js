@@ -1,11 +1,6 @@
 import html from "html-literal";
 
 
-export default st => html`
-  <section id="home">
-
-  </section>
-
-`;
+export default st => html``
 
 
