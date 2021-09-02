@@ -21,7 +21,7 @@ function render(st = state.Home) {
 
   router.updatePageLinks();
 
-  addEventListeners(st);
+  // addEventListeners(st);
 }
 
 function addEventListeners(st) {
