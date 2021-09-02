@@ -8,12 +8,12 @@ export default [
     text: "Affirmations"
   },
   {
-    title: "Tarot",
-    text: "In the Cards"},
+    title: "Music",
+    text: "Music"},
 
   {
-    title: "Journal",
-    text: "Jot that Down"
+    title: "Jokes",
+    text: "Jokes"
   },
 
 

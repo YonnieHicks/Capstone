@@ -2,12 +2,18 @@ import html from "html-literal";
 
 export default links => html`
   <nav>
-    <i class="fas fa-bars"></i>
-    <ul class="hidden--mobile nav-links">
-      ${links.map(
-        link =>
-          `<li><a href="/${link.title}" title="${link.title}" data-navigo>${link.text}</a></li>`
-      )}
-    </ul>
+    <div class="bg-img">
+      <div class="container">
+        <div class="topnav">
+          ${links.map(
+    link =>
+    `<a href="/${link.title}" title="${link.title}" data-navigo>
+              ${link.text}</a>`
+    )}
+        </div>
+      </div>
+    </div>
+
+    </div>
   </nav>
 `;

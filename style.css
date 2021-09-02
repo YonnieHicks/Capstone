@@ -6,60 +6,45 @@
 
 	body {
     background-image: url("assets\images\tree.jpg");
-    min-height: 380px;
+        min-height: 380px;
     background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 		font-family: 'Raleway', sans-serif;
 	}
-
-	h1{	font-family: 'Great Vibes', cursive;
-    color:tan;
-    outline-color: coral;
-
-
-
-
-	}
-
-header {
-  font-size: 30px;
-
-		position: fixed;
-	width: 97%;
-	margin: auto;
-  background-color: rgba(0, 66, 55, 0.671);
-  height: 75px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 66, 55, 0.671);
-  margin: 15px;
+h1{
+  font-family:'Great-Vibes', cursive;
 }
 
+  /* Position the navbar container inside the image */
+  .container {
+    position: absolute;
+    margin: 20px;
+    width: auto;
+  }
 
+  /* The navbar */
+  .topnav {
+    overflow: hidden;
+    background-color: rgba(0, 66, 55, 0.671);
+      }
 
+  /* Navbar links */
+  .topnav a {
+    float: left;
+    color: tan;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: blink;
+    font-size: 17px;
+  }
 
-/* The navbar */
-.topnav {
-  overflow: hidden;
-  background-color: rgba(0, 66, 55, 0.671);
-}
+  .topnav a:hover {
+    background-color: tan;
+    color: black;
 
-/* Navbar links */
-.topnav a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.table-container {
-  display: grid;
-
-}
-
+  }
 
 
 footer {	font-family: 'Great Vibes', cursive;
