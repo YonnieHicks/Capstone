@@ -4,8 +4,8 @@ export default [
     text: "Home"
   },
   {
-    title: "Astrology",
-    text: "In the Stars"
+    title: "Affirmations",
+    text: "Affirmations"
   },
   {
     title: "Tarot",
@@ -16,8 +16,5 @@ export default [
     text: "Jot that Down"
   },
 
-  {
-    title: " Trails",
-    text: "Walk it Out"
-  }
+
 ];

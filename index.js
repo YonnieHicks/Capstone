@@ -49,17 +49,17 @@ function addEventListeners(st) {
 
 //     switch (page) {
 //
-//       case "Astrology":
-//         state.Astrology.posts = [];
+//       case "Affirmations":
+//         state.Affirmations.posts = [];
 //         axios
 //           .get("https://vedicrishi-horoscope-matching-v1.p.rapidapi.com/basic_panchang")
 //           .then((response) => {
 //             response.data.forEach((post) => {
-//               state.Astrology.posts.push(post);
+//               state.Affirmations.posts.push(post);
 //             });
 //             done();
 
-//             console.log(state.Astrology.posts);
+//             console.log(state.Affirmations.posts);
 //           })
 //           .catch((err) => console.log(err));
 //         break;

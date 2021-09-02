@@ -1,17 +1,17 @@
 import html from "html-literal";
 
 export default (st) => html`
-  <section id="Astrology">
+  <section id="Affirmations">
     ${st.posts
       .map((post) => {
-        return formatAstrologyPost(post);
+        return formatAffirmationsPost(post);
       })
       .join("")}
   </section>
 `;
-function formatAstrologyPost(post) {
+function formatAffirmationsPost(post) {
   return `
-  <div class="astrology-post">
+  <div class="affirmations-post">
     <h1>${post.sign}</h1>
     <h1>by User ${post.day}</h1>
 
