@@ -43,49 +43,52 @@ function addEventListeners(st) {
 
 
 
-// router.hooks({
-//   before: (done, params) => {
-//     const page = params && params.hasOwnProperty("page") ? capitalize(params.page) : "Home";
+router.hooks({
+  before: (done, params) => {
+    const page = params && params.hasOwnProperty("page") ? capitalize(params.page) : "Home";
 
-//     switch (page) {
-//
-//       case "Affirmations":
-//         state.Affirmations.posts = [];
-//         axios
-//           .get("https://vedicrishi-horoscope-matching-v1.p.rapidapi.com/basic_panchang")
-//           .then((response) => {
-//             response.data.forEach((post) => {
-//               state.Affirmations.posts.push(post);
-//             });
-//             done();
+    switch (page) {
 
-//             console.log(state.Affirmations.posts);
-//           })
-//           .catch((err) => console.log(err));
-//         break;
+      case "Jokes":
+        state.Jokes.jokes = [];
+        const options = {
+          method: 'GET',
+          url: 'https://dad-jokes.p.rapidapi.com/random/joke',
+          headers: {
+            'x-rapidapi-host': 'dad-jokes.p.rapidapi.com',
+            'x-rapidapi-key': '5891e1df7bmsh5073b3f037d0cfep1efd2djsn46ef09bf3561'
+          }
+        };
 
-//       case "Home":
-//         axios
-//           .get(
-//             `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.	WEATHER_API_KEY}&q=st.%20louis`
-//           )
-//           .then((response) => {
-//             state.Home.weather = {};
-//             state.Home.weather.city = response.data.name;
-//             state.Home.weather.temp = response.data.main.temp;
-//             state.Home.weather.feelsLike = response.data.main.feels_like;
-//             state.Home.weather.humidity = response.data.main.humidity;
-//             state.Home.weather.description = response.data.weather[0]["description"];
-//             done();
-//           })
-//           .catch((err) => console.log(err));
-//         break;
+        axios.request(options).then(function (response) {
+          console.log(response.data);
+        }).catch(function (error) {
+          console.error(error);
+        });
+        break;
 
-//       default:
-//         done();
-//     }
-//   },
-// });
+      case "Home":
+        axios
+          .get(
+            `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.	WEATHER_API_KEY}&q=st.%20louis`
+          )
+          .then((response) => {
+            state.Home.weather = {};
+            state.Home.weather.city = response.data.name;
+            state.Home.weather.temp = response.data.main.temp;
+            state.Home.weather.feelsLike = response.data.main.feels_like;
+            state.Home.weather.humidity = response.data.main.humidity;
+            state.Home.weather.description = response.data.weather[0]["description"];
+            done();
+          })
+          .catch((err) => console.log(err));
+        break;
+
+      default:
+        done();
+    }
+  },
+});
 
 router
   .on({
