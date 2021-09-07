@@ -50,21 +50,23 @@ router.hooks({
     switch (page) {
 
       case "Jokes":
-        state.Jokes.jokes = [];
-        const options = {
-          method: 'GET',
-          url: 'https://dad-jokes.p.rapidapi.com/random/joke',
-          headers: {
-            'x-rapidapi-host': 'dad-jokes.p.rapidapi.com',
-            'x-rapidapi-key': '5891e1df7bmsh5073b3f037d0cfep1efd2djsn46ef09bf3561'
-          }
-        };
 
-        axios.request(options).then(function (response) {
-          console.log(response.data);
-        }).catch(function (error) {
-          console.error(error);
-        });
+        state.Jokes.jokes = [];
+        axios
+          .get('https://dad-jokes.p.rapidapi.com/random/joke?rapidapi-key=5891e1df7bmsh5073b3f037d0cfep1efd2djsn46ef09bf3561')
+          .then(response => {
+            jokesObject = {};
+            console.log(response.data);
+            response.data.body.forEach(combo => {
+              state.Jokes.jokes.push({
+                setup: combo.setup,
+                punchline: combo.punchline,
+              })
+            })
+            done();
+          })
+
+          .catch((err) => console.log(err));
         break;
 
       case "Home":
