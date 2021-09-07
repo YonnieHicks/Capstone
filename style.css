@@ -16,6 +16,13 @@
 h1{
   font-family:'Great-Vibes', cursive;
 }
+.jokes{
+color: #fff;
+background-color: black;
+width: 300px;
+position: relative;
+
+}
 
   /* Position the navbar container inside the image */
   .container {
@@ -59,13 +66,4 @@ footer {	font-family: 'Great Vibes', cursive;
   text-align: center;
 }
 
-iframe {
-  border: none;
-  width:50px;
-  height:75px;
-  border:0;
 
-
-
-
-}

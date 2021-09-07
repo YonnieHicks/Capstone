@@ -12,11 +12,10 @@ export default (st) => html`
 
 function formatJokesjokes(jokes) {
   return `
-  <div class="jokes">
-    <h1>${jokes.setup}</h1>
-    <h2>by User ${jokes.punchline}</h2>
+ <center> <div class="jokes">
+    <h3>${jokes.setup}</h3>
+    <h3>${jokes.punchline}</h3>
 
-    <hr>
-    <br/>
-  </div>`;
+
+  </div></center>`;
 }
