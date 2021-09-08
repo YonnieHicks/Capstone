@@ -14,8 +14,6 @@ body {
   font-family: "Raleway", sans-serif;
 }
 #jumbotron {
-  background: url(assets/images/tree.jpg) center
-    center no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -27,18 +25,20 @@ body {
 
 #weather {
   text-align: center;
-  width: 70%;
+  width: 55%;
   margin: 20px auto;
-}
-
-h1,#jumbotron > h2  {
-  color:tan;
-  font-family: "Great-Vibes", cursive;
-  text-align: center;
-  font-family: "Great Vibes", cursive;
+  font-size: 25px;
+  color: tan;
   outline-color: black;
-
-  width: 100%;
+  background-color: rgba(0, 66, 55, 0.671);
+}
+#jumbotron > h2  {
+  text-align: center;
+  width: 75%;
+  margin: 20px auto;
+  font-size: 45px;
+  color: tan;
+  outline-color: black;
   background-color: rgba(0, 66, 55, 0.671);
 
   text-align: center;
@@ -46,10 +46,10 @@ h1,#jumbotron > h2  {
 
 h1{
   color:tan;
-  font-family: "Great-Vibes", cursive;
+  font-family: "Great Vibes", cursive;
   text-align: center;
   outline-color: black;
-
+  font-size: 60px;
   width: 100%;
   background-color: rgba(0, 66, 55, 0.671);
 
