@@ -1,61 +1,94 @@
 * {
-	margin: 0px;
-	padding: 0px;
-	box-sizing: border-box;
-	}
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
 
-	body {
-    background-image: url("assets\images\tree.jpg");
-        min-height: 380px;
-    background-position: center;
+body {
+  background-image: url("assets\images\tree.jpg");
+  min-height: 380px;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-		font-family: 'Raleway', sans-serif;
-	}
-h1{
-  font-family:'Great-Vibes', cursive;
+  font-family: "Raleway", sans-serif;
 }
-.jokes{
-color: #fff;
-background-color: black;
-width: 300px;
-position: relative;
-
+#jumbotron {
+  background: url(assets/images/tree.jpg) center
+    center no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
 }
 
-  /* Position the navbar container inside the image */
-  .container {
-    position: absolute;
-    margin: 20px;
-    width: auto;
-  }
 
-  /* The navbar */
-  .topnav {
-    overflow: hidden;
-    background-color: rgba(0, 66, 55, 0.671);
-      }
+#weather {
+  text-align: center;
+  width: 70%;
+  margin: 20px auto;
+}
 
-  /* Navbar links */
-  .topnav a {
-    float: left;
-    color: tan;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: blink;
-    font-size: 17px;
-  }
-
-  .topnav a:hover {
-    background-color: tan;
-    color: black;
-
-  }
-
-
-footer {	font-family: 'Great Vibes', cursive;
+h1,#jumbotron > h2  {
   color:tan;
+  font-family: "Great-Vibes", cursive;
+  text-align: center;
+  font-family: "Great Vibes", cursive;
+  outline-color: black;
+
+  width: 100%;
+  background-color: rgba(0, 66, 55, 0.671);
+
+  text-align: center;
+}
+
+h1{
+  color:tan;
+  font-family: "Great-Vibes", cursive;
+  text-align: center;
+  outline-color: black;
+
+  width: 100%;
+  background-color: rgba(0, 66, 55, 0.671);
+
+  text-align: center;
+}
+
+.jokes {
+  color: #fff;
+  background-color: black;
+  width: 300px;
+  position: relative;
+}
+
+
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  background-color: rgba(0, 66, 55, 0.671);
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  color: tan;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: blink;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: tan;
+  color: black;
+}
+
+footer {
+  font-family: "Great Vibes", cursive;
+  color: tan;
   outline-color: black;
   position: fixed;
   left: 0;
@@ -65,5 +98,3 @@ footer {	font-family: 'Great Vibes', cursive;
   font-size: 20px;
   text-align: center;
 }
-
-

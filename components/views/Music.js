@@ -8,7 +8,7 @@ export default (st) => html`
 
 <source src="${music}" type="video/mp4">
 
-        Sorry, your browser doesn't support embedded videos.
+
 </video>
 </center>
 
