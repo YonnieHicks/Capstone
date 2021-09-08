@@ -4,8 +4,8 @@ export default [
     text: "Home"
   },
   {
-    title: "Affirmations",
-    text: "Affirmations"
+    title: "Meditation",
+    text: "Meditation"
   },
   {
     title: "Music",

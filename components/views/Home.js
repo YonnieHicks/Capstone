@@ -6,7 +6,7 @@ export default st => html`
 
 
   <section id="jumbotron">
-    <h2>More Coming Soon!</h2>
+    <h2>Blog Coming Soon!</h2>
     </section>
 
   <h3 id="weather">

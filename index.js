@@ -86,6 +86,22 @@ router.hooks({
           .catch((err) => console.log(err));
         break;
 
+        case "Meditation":
+          axios
+            .get(
+              `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.	WEATHER_API_KEY}&q=st.%20louis`
+            )
+            .then((response) => {
+              state.Meditation.weather = {};
+              state.Meditation.weather.city = response.data.name;
+              state.Meditation.weather.temp = response.data.main.temp;
+              state.Meditation.weather.feelsLike = response.data.main.feels_like;
+              state.Meditation.weather.humidity = response.data.main.humidity;
+              state.Meditation.weather.description = response.data.weather[0]["description"];
+              done();
+            })
+            .catch((err) => console.log(err));
+          break;
       default:
         done();
     }
