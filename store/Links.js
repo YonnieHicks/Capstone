@@ -13,7 +13,7 @@ export default [
 
   {
     title: "Jokes",
-    text: "Jokes"
+    text: "Laugh a Little"
   },
 
 
