@@ -6,6 +6,6 @@ Site: https://capstone-hicks.netlify.app/
 
 API(s):
 
-https://openweathermap.org/
+https://openweathermap.org/<br>
 https://rapidapi.com/KegenGuyll/api/dad-jokes/ 
    (temporarily commented out in index.js)
