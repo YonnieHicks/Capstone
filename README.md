@@ -1,11 +1,11 @@
-For this project, I decided to create a wellness website that is meant for busy adults who are looking to save time and money while taking care of themselves. The website will allow users to access information on a variety of wellness topics, easy self-care projects, and more.   Many of the websites that I have researched, struggled to incorporate self-care with busy adult schedules.  So, I have created a section that sends a list of items that a user has selected from the self-care projects category, that can be sent to your cellular device. This enables individuals to have their wellness plan items available at the touch of a finger while at the grocery store. I used JavaScript, HTML, CSS, Node, Express, and API. 
+For my capstone project, I decided to create a website called The Unstressed Mom that is meant for busy moms who can benefit from some of the activities that I’ve discovered that help me unwind and destress. The futrure states of this website will allow users to access information on a wide variety of fun and informative topics. I used JavaScript, HTML, CSS, Node, Express, and two APIs.
 
-Possible Name: @HomeWellness
-Color Palette:
+Name: The Unstressed Mom
 
-  Lavender (#E6E6FA) - Logo/Menu bar
-  Black (#000000) -Text
-  White (#FFFFFF) – Background
-  
+Site: https://capstone-hicks.netlify.app/
+
 API(s):
-	Undecided
+
+https://openweathermap.org/
+https://rapidapi.com/KegenGuyll/api/dad-jokes/ 
+   (temporarily commented out in index.js)
