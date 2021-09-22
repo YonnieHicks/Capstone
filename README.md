@@ -8,4 +8,4 @@ API(s):
 
 https://openweathermap.org/<br>
 https://rapidapi.com/KegenGuyll/api/dad-jokes/ 
-   (temporarily commented out in index.js)
+   (Temporarily commented out in index.js)
